@@ -176,4 +176,10 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
+	
+	public void OnGameOver()
+	{
+		Debug.Log("Game Over");
+		Time.timeScale = 0;
+	}
 }

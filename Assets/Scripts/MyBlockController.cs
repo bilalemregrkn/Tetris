@@ -30,11 +30,18 @@ public class MyBlockController : MonoBehaviour
 					int x = Mathf.RoundToInt(piece.position.x);
 					int y = Mathf.RoundToInt(piece.position.y);
 
+					if (y >= GameManager.Instance.Grid.GetLength(1))
+					{
+						//GameOver
+						GameManager.Instance.OnGameOver();
+						yield break;
+					}
+
 					GameManager.Instance.Grid[x, y] = true;
 				}
-				
+
 				GameManager.Instance.UpdateRemoveObjectController();
-				
+
 				GameManager.Instance.Spawn();
 				break;
 			}
